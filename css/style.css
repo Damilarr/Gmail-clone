@@ -52,6 +52,7 @@ input[type=checkbox]{
     padding: 0 5px;
     /* background-color: white; */
 }
+.page{ display: none;}
 .input-wrapper input{
     margin: 10px 0 10px;
 }

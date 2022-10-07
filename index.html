@@ -16,92 +16,96 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="d-flex justify-content-center align-items-center pt-0 pt-sm-5">
-    <div class="border rounded p-2 mt-1  p-sm-5 mt-sm-5 main d-none">
-        <img src="./img/vector2.svg" alt="" class="mb-3">
-        <h3>Create your google account</h3>
-        <div class="d-flex justify-content-between align-items-start">
-            <div class="d-flex flex-column justify-content-between align-items-center div1">
-                <div class="d-flex justify-content-around align-items-center form-group name flex-wrap flex-sm-nowrap">
-                    <div class="input-wrapper position-relative w-100 shadow-none  mr-sm-2 mr-0 mb-sm-0 mb-2">
-                        <label for="firstName" class="bg-white d-none">FirstName</label>
-                        <input type="text" name=""  class="form-control shadow-none" placeholder="Firstname" id="firstName">
-                    </div>
-                    <div class="input-wrapper position-relative w-100 shadow-none">
-                        <label for="lastname" class="bg-white d-none">Lastname</label>
-                        <input type="text" name=""  class="form-control shadow-none"  placeholder="Lastname" id="lastName">
-                    </div>
-                </div>
-                <div class="d-flex flex-column w-100 form-group username-div">
-                    <div class="input-group mb-3 flex-nowrap align-items-center w-100">
-                        <div class="input-wrapper position-relative  w-75">
-                            <label for="lastname" class="bg-white d-none">Username</label>
-                            <input type="text" class="form-control border-right-0  shadow-none" id="userName" placeholder="Username">
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text bg-white w-100" id="basic-addon2">@gmail.com</span>
-                        </div>
-                    </div>
-                    <p class="text-left small-texts">You can use letters,numbers,periods.</p>
-                </div>
-                <div class="d-flex flex-column w-100 form-group available">
-                    <p class="text-left mb-3"></p>
-                    <a href="#" class="rounded p-1 link-style">Use my current Email address instead</a>
-                </div>
-                <div class="d-flex flex-column password">
+    <div id="signUpIn" class="page">
+        <div class="border rounded p-2 mt-1  p-sm-5 mt-sm-5 main" id="signUp">
+            <img src="./img/vector2.svg" alt="" class="mb-3">
+            <h3>Create your google account</h3>
+            <div class="d-flex justify-content-between align-items-start">
+                <div class="d-flex flex-column justify-content-between align-items-center div1">
                     <div class="d-flex justify-content-around align-items-center form-group name flex-wrap flex-sm-nowrap">
                         <div class="input-wrapper position-relative w-100 shadow-none  mr-sm-2 mr-0 mb-sm-0 mb-2">
-                            <label for="firstName" class="bg-white d-none">Password</label>
-                            <input type="text" name=""  class="form-control shadow-none" placeholder="Password" id="password">
+                            <label for="firstName" class="bg-white d-none" id="firstNameLabel">FirstName</label>
+                            <input type="text" name=""  oninput="showLabel('firstNameLabel','firstName')" onblur="validateName('firstName')" title="FirstName containing letters only" class="form-control shadow-none" placeholder="Firstname" id="firstName">
                         </div>
                         <div class="input-wrapper position-relative w-100 shadow-none">
-                            <label for="lastname" class="bg-white d-none">Confirm Password</label>
-                            <input type="text" name=""  class="form-control shadow-none"  placeholder="Confirm password" id="confirmPassword">
+                            <label for="lastname" class="bg-white d-none" id="lastNameLabel">Lastname</label>
+                            <input type="text" name="" oninput="showLabel('lastNameLabel','lastName')" onblur="validateName('lastName')" title="lastName containing letters only" class="form-control shadow-none"  placeholder="Lastname" id="lastName">
                         </div>
                     </div>
-                    <p class="text-left mb-2 small-texts">Use 8 or more characters with a mix of letters, numbers & symbols.</p>
-                    <div class="d-flex align-items-center justify-content-around mb-5">
-                        <input type="checkbox"  id="passCheck" name="passCheck" class="mr-2">
-                        <label for="passCheck" class="m-0">Show Password</span>
+                    <div class="d-flex flex-column w-100 form-group username-div mb-0">
+                        <div class="input-group flex-nowrap align-items-center w-100 m-0">
+                            <div class="input-wrapper position-relative  w-75">
+                                <label for="lastname" class="bg-white d-none" id="userNameLabel">Username</label>
+                                <input type="text" oninput="showLabel('userNameLabel','userName')" onblur="validateName('userName')" title="Username can only contain letters and special charcters # * $ _ ." class="form-control border-right-0  shadow-none" id="userName" placeholder="Username">
+                            </div>
+                            <div class="input-group-append">
+                              <span class="input-group-text bg-white w-100" id="basic-addon2">@gmail.com</span>
+                            </div>
+                        </div>
+                        <p class="text-left small-texts mb-0">You can use letters,numbers,periods.</p>
+                        <p class="small-texts w-100" id="userNameP"></p>
                     </div>
-                </div>
-                <div class="d-flex justify-content-between align-items-center w-100 sign-in">
-                    <a href="#" class="rounded p-1 link-style">Sign in instead</a>
-                    <button class="btn btn-primary px-4" >Next</button>
-                </div>
-             </div>
-             <div class="div2 d-flex flex-column sign-up-image">
-                <img src="./img/vector.svg" alt="" height="244px" width="244px">
-                <p class="text-center">One Account. All of Google<br> working for you</p>
-             </div> 
-        </div>
-       
-    </div>
-    <!-- SIGN IN -->
-    <div class="border rounded p-3 p-sm-5 mt-5 sign-in-page d-none">
-        <div class="d-flex justify-content-center align-items-center w-100 mb-2">
-            <img src="./img/vector2.svg" class="" alt="">
-        </div>
-        <h5 class="text-center">Sign in</h5>
-        <p class="text-center">Use your Google Account</p>
-        <div class="d-flex flex-column mb-4 w-100 inp-label">
-            <div class="input-wrapper position-relative w-100">
-                <label for="Email or Phone"></label>
-                <input type="text" name=""  class="form-control shadow-none" placeholder="Email or Phone" id="email/phone">
+                    <div class="d-flex flex-column w-100 form-group available">
+                        <p class="text-left mb-3"></p>
+                        <a href="#" class="rounded p-1 link-style">Use my current Email address instead</a>
+                    </div>
+                    <div class="d-flex flex-column password">
+                        <div class="d-flex justify-content-around align-items-center form-group name flex-wrap flex-sm-nowrap">
+                            <div class="input-wrapper position-relative w-100 shadow-none  mr-sm-2 mr-0 mb-sm-0 mb-2">
+                                <label for="firstName" class="bg-white d-none" id="passwordLabel">Password</label>
+                                <input type="password" name="" oninput="showLabel('passwordLabel','password')" class="form-control shadow-none" placeholder="Password" id="password">
+                            </div>
+                            <div class="input-wrapper position-relative w-100 shadow-none">
+                                <label for="lastname" class="bg-white d-none" id="confirmPassLabel">Confirm Password</label>
+                                <input type="password" name="" oninput="showLabel('confirmPassLabel','confirmPassword')" class="form-control shadow-none"  placeholder="Confirm password" id="confirmPassword">
+                            </div>
+                        </div>
+                        <p class="text-left mb-2 small-texts">Use 8 or more characters with a mix of letters, numbers & symbols.</p>
+                        <div class="d-flex align-items-center justify-content-around mb-5">
+                            <input type="checkbox" onclick="showPassword()"  id="passCheck" name="passCheck" class="mr-2">
+                            <label for="passCheck" class="m-0">Show Password</span>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center w-100 sign-in">
+                        <a href="#" class="rounded p-1 link-style" id="toSignIn" onclick="changeSignPage('toSignIn')">Sign in instead</a>
+                        <button class="btn btn-primary px-4" id="page3" onclick="nextPage()">Next</button>
+                    </div>
+                 </div>
+                 <div class="div2 d-flex flex-column sign-up-image">
+                    <img src="./img/vector.svg" alt="" height="244px" width="244px">
+                    <p class="text-center">One Account. All of Google<br> working for you</p>
+                 </div> 
             </div>
-            <a href="#" class="rounded p-1 link-style">Forgot Email?</a>
+           
         </div>
-        <div class="d-flex flex-column learn-more mb-4">
-            <p>Not your computer?Use a private window to sign in.</p>
-            <a href="#" class="rounded p-1 link-style">Learn more</a>
-        </div>
-        <div class="d-flex justify-content-between align-items-center w-100">
-            <a href="#" class="rounded p-1 link-style">Create account</a>
-            <button class="btn btn-primary px-4" >Next</button>
+        <!-- SIGN IN -->
+        <div class="border rounded p-3 p-sm-5 mt-5 sign-in-page d-none" id="signIn">
+            <div class="d-flex justify-content-center align-items-center w-100 mb-2">
+                <img src="./img/vector2.svg" class="" alt="">
+            </div>
+            <h5 class="text-center">Sign in</h5>
+            <p class="text-center">Use your Google Account</p>
+            <div class="d-flex flex-column mb-4 w-100 inp-label">
+                <div class="input-wrapper position-relative w-100">
+                    <label for="Email or Phone"></label>
+                    <input type="text" name=""  class="form-control shadow-none" placeholder="Email or Phone" id="email/phone">
+                </div>
+                <a href="#" class="rounded p-1 link-style">Forgot Email?</a>
+            </div>
+            <div class="d-flex flex-column learn-more mb-4">
+                <p>Not your computer?Use a private window to sign in.</p>
+                <a href="#" class="rounded p-1 link-style">Learn more</a>
+            </div>
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <a href="#" class="rounded p-1 link-style" id="toSignUp" onclick="changeSignPage('toSignUp')">Create account</a>
+                <button class="btn btn-primary px-4" id="page0" onclick="nextPage()">Next</button>
+            </div>
         </div>
     </div>
+   
     <!-- PHONE NUMBER AND DATE OF BIRTH -->
-    <div class="border rounded p-3 p-md-5 mx-md-5 mb-md-5 dob d-none">
-        <img src="./img/phone-number.svg" alt="">
+    <div class="border rounded p-3 p-md-5 mx-md-5 mb-md-5 dob  page">
+        <img src="./img/vector2.svg" alt="">
         <h5>Emmanuel,Welcome to Google</h5>
         <div class="d-flex justify-content-between  align-items-center mb-4">
             <i class="fa-solid fa-circle-user mr-2 text-primary"></i>
@@ -161,17 +165,17 @@
                     <a href="#" class="link-style p-1 rounded">Why we ask for this Information</a>
                 </div>
                 <div class="d-flex justify-content-between align-items-center w-100">
-                    <a href="#" class="link-style rounded p-1">Back</a>
-                    <button class="btn btn-primary px-4">Next</button>
+                    <a href="#" class="link-style rounded p-1" onclick="prevPage()">Back</a>
+                    <button class="btn btn-primary px-4" id="page1" onclick="nextPage()">Next</button>
                 </div>
             </div>
             <div class="d-flex justify-content-around w-md-25 w-sm-100 p-1 d-md-block d-none">
-                <img src="./img/vector.svg" height="244px"  class="w-100 d-md-block d-none" alt="">
+                <img src="./img/phone-number.svg" height="244px"  class="w-100 d-md-block d-none" alt="">
             </div>
         </div>
     </div>
     <!-- PRIVACY AND TERMS -->
-    <div class="border rounded p-3 p-md-5 mx-md-5">
+    <div class="border rounded p-3 p-md-5 mx-md-5 page">
         <img src="./img/vector2.svg" alt="">
         <h5 class="w-50">Privacy and Terms</h5>
         <div class="d-flex justify-content-between align-items-start  w-100">
@@ -247,8 +251,8 @@
                     </div>
                 </details>
                 <div class="d-flex align-items-center justify-content-between w-100">
-                    <a href="#" class="rounded p-1 link-style">Cancel</a>
-                    <button class="btn btn-primary px-4">Next</button>
+                    <a href="#" class="rounded p-1 link-style" onclick="prevPage()">Cancel</a>
+                    <button class="btn btn-primary px-4" id="page2" onclick="nextPage()">I agree</button>
                 </div>
             </div>
             <div class="w-75 d-flex flex-column  align-items-center justify-content-center privacy-img">
