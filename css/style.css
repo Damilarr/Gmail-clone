@@ -1,0 +1,63 @@
+body div,body .sign-in-page{
+    height: fit-content;
+    overflow-y: hidden;
+    width: fit-content;
+    border-color: #ced4da;
+}
+.small-texts{
+    color: #3a3a3a;
+    font-size: 15px !important;
+}
+.link-style{
+    color: #1a73e8;
+    font-weight: 600;
+    font-size: 14px;
+}
+.link-style:hover{
+    background-color: #dfedfd;
+    text-decoration: none;
+    width: fit-content;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+}
+input[type=checkbox]{
+    height: 19px;
+    width: 19px;
+}
+.sign-in-page .inp-label{
+    width: fit-content;
+}
+
+     /*SIGN IN  */
+.sign-in-page input{
+    max-width: 100%;
+    height: 50px;
+    /* line-height: 6ex; */
+    margin: 10px 0 10px;
+}
+.sign-in-page .learn-more P{
+    margin:  0 0 0 !important;
+    color: #575757;
+    font-weight: 400;
+    font-size: 14px;
+}
+.input-wrapper label{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    left: 2em;
+    padding: 0 5px;
+    /* background-color: white; */
+}
+.input-wrapper input{
+    margin: 10px 0 10px;
+}
+@media screen and (max-width:900px) {
+    .sign-up-image,.privacy-img{ display: none !important;}
+}
+@media screen and (max-width:576px) {
+    .main,.sign-in-page,.dob{ border-color: transparent !important;}
+}
