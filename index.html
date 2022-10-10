@@ -47,7 +47,7 @@
                     </div>
                     <div class="d-flex flex-column w-100 form-group available">
                         <p class="text-left mb-3"></p>
-                        <a href="#" class="rounded p-1 link-style">Use my current Email address instead</a>
+                        <a href="#" class="rounded p-1 link-style w-75">Use my current Email address instead</a>
                     </div>
                     <div class="d-flex flex-column password">
                         <div class="d-flex justify-content-around align-items-center form-group name flex-wrap flex-sm-nowrap">
@@ -60,7 +60,8 @@
                                 <input type="password" name="" oninput="showLabel('confirmPassLabel','confirmPassword')" class="form-control shadow-none"  placeholder="Confirm password" id="confirmPassword">
                             </div>
                         </div>
-                        <p class="text-left mb-2 small-texts">Use 8 or more characters with a mix of letters, numbers & symbols.</p>
+                        <p class="m-0" id="passText1"></p>
+                        <p class="text-left mb-2 small-texts" id="passText2">Use 8 or more characters with a mix of letters, numbers & symbols.</p>
                         <div class="d-flex align-items-center justify-content-around mb-5">
                             <input type="checkbox" onclick="showPassword()"  id="passCheck" name="passCheck" class="mr-2">
                             <label for="passCheck" class="m-0">Show Password</span>
@@ -87,8 +88,9 @@
             <p class="text-center">Use your Google Account</p>
             <div class="d-flex flex-column mb-4 w-100 inp-label">
                 <div class="input-wrapper position-relative w-100">
-                    <label for="Email or Phone"></label>
-                    <input type="text" name=""  class="form-control shadow-none" placeholder="Email or Phone" id="email/phone">
+                    <label for="Email"></label>
+                    <input type="text" name=""  class="form-control shadow-none mb-0" placeholder="Email or Phone" id="accountEmail">
+                    <p id="accountEmailP" class="text-danger mb-0"></p>
                 </div>
                 <a href="#" class="rounded p-1 link-style">Forgot Email?</a>
             </div>
@@ -101,15 +103,37 @@
                 <button class="btn btn-primary px-4" id="page0" onclick="nextPage()">Next</button>
             </div>
         </div>
+        <!-- SIGN-IN PASSWORD -->
+        <div class="border rounded p-3 p-sm-5 mt-5 sign-in-page d-none" id="signInPassword">
+            <div class="d-flex justify-content-center align-items-center w-100 mb-2">
+                <img src="./img/vector2.svg" class="" alt="">
+            </div>
+            <h4 class="text-center w-100">Welcome</h4>
+            <p class="text-center rounded-pill border"><i class="fa-solid fa-circle-user text-primary pr-2"></i><span id="userEmail">imaxx66@gmail.com</span></p>
+            <div class="d-flex flex-column mb-4 w-100 inp-label">
+                <div class="input-wrapper position-relative w-100">
+                    <label for="accountPassword" class="d-none bg-white" id="signInPassL">Enter your Password</label>
+                    <input type="password" name="" oninput="showLabel('signInPassL','accountPassword')"  class="form-control shadow-none mb-0 w-100" placeholder="" id="accountPassword">
+                    <p class="m-0 text-danger" id="passwordError"></p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <input type="checkbox" id="signInPass" onclick="passwordToggle()"><label for="signInPass" class="mb-0 ml-2">Show password</label>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <a href="#" class="rounded p-1 link-style" id="toSignUp" onclick="">Forgot password?</a>
+                <form><button class="btn btn-primary px-4" id="fBtn" formaction="#" onclick="openMail()">Next</button></form>
+            </div>
+        </div>
     </div>
    
     <!-- PHONE NUMBER AND DATE OF BIRTH -->
     <div class="border rounded p-3 p-md-5 mx-md-5 mb-md-5 dob  page">
         <img src="./img/vector2.svg" alt="">
-        <h5>Emmanuel,Welcome to Google</h5>
+        <h5 id="welcomeText">Emmanuel,Welcome to Google</h5>
         <div class="d-flex justify-content-between  align-items-center mb-4">
             <i class="fa-solid fa-circle-user mr-2 text-primary"></i>
-            <span class="font-weight-bold">imaxx66@gmail.com</span>
+            <span class="font-weight-bold" id="createdUsername">imaxx66@gmail.com</span>
         </div>
         <div class="d-flex justify-content-between align-items-start">
             <div class="d-flex flex-column w-md-50 w-sm-100">
@@ -123,46 +147,46 @@
                         </select>
                         <div class="input-wrapper position-relative w-100">
                             <label for="phoneNumber"></label>
-                            <input type="text" name=""  class=" form-control shadow-none" placeholder="Email or Phone" id="phoneNumber">
+                            <input type="text" name=""  class=" form-control shadow-none" placeholder="Phone Number (Optional)" id="phoneNumber">
                         </div>
                     </div>
                     <p class="text-wrap small-texts"> Google will only use this number for account security,<br>Your number won't be visible to others,you can choose later whether to use it for other purposes.</p>
                 </div>
                 <div class="d-flex flex-column w-100 form-group recoveryMail">
-                    <input type="text" class="form-control shadow-none" placeholder="Recovery Email Address (Optional)" name="" id="">
+                    <input type="text" class="form-control shadow-none" placeholder="Recovery Email Address (Optional)" name="" id="recoveryMail">
                     <p class="text-left small-texts">We'll use it to keep your account secure</p>
                 </div>
                 <div class="d-flex flex-column form-group w-100">
                     <div class="d-flex justify-content-between align-items-center w-100">
-                        <select name="" id="" class="form-control shadow-none mr-2">
+                        <select name="" id="b-month" class="form-control shadow-none mr-2">
                             <option value="" disabled selected>Month</option>
-                            <option value="">January</option>
-                            <option value="">February</option>
-                            <option value="">March</option>
-                            <option value="">April</option>
-                            <option value="">May</option>
-                            <option value="">June</option>
-                            <option value="">July</option>
-                            <option value="">August</option>
-                            <option value="">September</option>
-                            <option value="">October</option>
-                            <option value="">November</option>
-                            <option value="">December</option>
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
                         </select>
-                        <input type="text" minlength="1" maxlength="2" placeholder="Day" class="form-control shadow-none mr-2">
-                        <input type="text" placeholder="Year" minlength="4" maxlength="4"  name="" id="" class="form-control shadow-none">
+                        <input type="text" minlength="1" max="31" maxlength="2" id="b-day" placeholder="Day" class="form-control shadow-none mr-2">
+                        <input type="text" placeholder="Year" minlength="4" maxlength="4"  name="" id="b-year" class="form-control shadow-none">
                     </div>
                     <p class="small-texts">Your Birthday</p>
                 </div>
                 <div class="d-flex flex-column w-100 mb-4">
-                    <select name="" id="" class="form-control shadow-none mb-4">
+                    <select name="" id="gender" class="form-control shadow-none mb-4">
                         <option value="" disabled selected>Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                         <option value="custom">Custom</option>
                         <option value="rather not say">Rather not say</option>
                     </select>
-                    <a href="#" class="link-style p-1 rounded">Why we ask for this Information</a>
+                    <a href="#" class="link-style p-1 rounded w-50">Why we ask for this Information</a>
                 </div>
                 <div class="d-flex justify-content-between align-items-center w-100">
                     <a href="#" class="link-style rounded p-1" onclick="prevPage()">Back</a>

@@ -30,7 +30,9 @@ input[type=checkbox]{
 .sign-in-page .inp-label{
     width: fit-content;
 }
-
+#signInPassword{
+    min-width: 355px;
+}
      /*SIGN IN  */
 .sign-in-page input{
     max-width: 100%;
@@ -38,7 +40,7 @@ input[type=checkbox]{
     /* line-height: 6ex; */
     margin: 10px 0 10px;
 }
-.sign-in-page .learn-more P{
+.sign-in-page .learn-more p{
     margin:  0 0 0 !important;
     color: #575757;
     font-weight: 400;
