@@ -1,0 +1,106 @@
+@font-face {
+    font-family: Google_Sans;
+    src: url(../Fonts/Google-sans-Font-Family/ProductSans-Medium.ttf);
+}
+*{
+    font-family: Google_Sans;
+}
+.aside1 a{
+    border: 1px solid transparent;
+}
+.aside1 #composeBtn{
+    background-color: #d3e3fd;
+}
+.aside1 .compBtn:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    box-shadow: 0px 2px 1px #3b3b3b;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+}
+.header input{
+    background-color: transparent;
+}
+#emails{
+    background-color: #f6f8fc;
+}
+.inp-group{
+    background-color: #eaf1fb;
+}
+.aside1 a:hover,.aside1 li:hover {
+    background-color: #eaebef;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    text-decoration: none !important;
+}
+.aside1 a:active, .aside1 li .active{
+    background-color: #d3e3fd;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+}
+.small-texts{
+    color: #afafaf;
+    font-size: 14px !important;
+}
+.mail-row .icons{display: none;}
+.mail-row2 .icons{display: none;}
+.mail-row:hover .icons {
+    display: flex !important;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+}
+.mail-row:hover .date{
+    display: none !important;
+}
+.mail-row:hover{
+    box-shadow: 0px 2px 1px #616161;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+}
+.nav-tabs .active{
+    border-bottom: 3px solid blue;
+    color: blue !important;
+}
+.none{
+    display: none;
+}
+.nav-tabs .active a{
+    color: blue !important;
+}
+.sign-out-box{
+    top: 5%;
+    right: 1%;
+    z-index: 98;
+    box-shadow: 0px 0px 5px #616161;
+}
+.composeBox{
+    bottom: 3%;
+    right: 0;
+    z-index: 99;
+    box-shadow: 0px 0px 5px #616161;
+}
+@media screen and (max-width:576px) {
+    .progress{width: 100% !important;}
+}
