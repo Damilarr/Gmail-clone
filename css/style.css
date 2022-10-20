@@ -1,3 +1,20 @@
+@font-face {
+    font-family: roboto;
+    src: url(../Fonts/Roboto/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: Google_Sans;
+    src: url(../Fonts/Google-sans-Font-Family/ProductSans-Regular.ttf);
+}
+*{
+    font-family: roboto;
+}
+h3,.link-style{
+    font-family: Google_Sans;
+}
+.sign-in-page h5{
+    font-family: Google_Sans;
+}
 body div,body .sign-in-page{
     height: fit-content;
     overflow-y: hidden;
@@ -48,7 +65,7 @@ input[type=checkbox]{
 }
 .input-wrapper label{
     position: absolute;
-    top: 0;
+    top: -0.2em;
     z-index: 1;
     left: 2em;
     padding: 0 5px;
@@ -57,6 +74,7 @@ input[type=checkbox]{
 .page{ display: none;}
 .input-wrapper input{
     margin: 10px 0 10px;
+    /* padding-top: 5px; */
 }
 @media screen and (max-width:900px) {
     .sign-up-image,.privacy-img{ display: none !important;}

@@ -19,7 +19,7 @@
         <div class="progress w-50 mt-3 mt-sm-5" style="height:6px;">
             <div class="progress-bar progress-bar-danger bg-danger" id="progressBar"  role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
         </div>
-        <h5 class="pt-1 text-dark">Google workspace</h5>
+        <h5 class="pt-1 text-dark g-sans font-weight-bold">Google <span class="g-sans text-muted">workspace</span></h5>
     </div>
     <div id="emails" class="container-fluid pt-2 pl-0 h-100 d-none">
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="modal-footer">
                   <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
-                  <button type="button" class="btn btn-primary" data-dismiss="modal">Understood</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
                 </div>
               </div>
             </div>
@@ -54,58 +54,68 @@
                 <i class="fa-regular fa-circle-question text-muted mx-2"></i>
                 <i class="fa-solid fa-gear text-muted mx-2"></i>
                 <i class="fa-solid fa-braille text-muted mx-2"></i>
-                <button id="signedInAccount" class="rounded-circle btn btn-light text-white bg-secondary mx-2" data-toggle="tooltip" data-placement="bottom" onclick="showSignOutBox()"></button>
+                <button id="signedInAccount" class="rounded-circle btn btn-light text-white  mx-2" data-toggle="tooltip" data-placement="bottom" onclick="showSignOutBox()"></button>
             </div>
         </div>
-        <div class="body d-flex align-items-start  justify-content-between w-100 h-75">
+        <div class="body d-flex align-items-start  justify-content-between w-100 h-100">
             <div class="d-flex flex-column justify-content-between w-25 aside1">
-                <button class="btn rounded-pill mb-3 ml-4 mr-4 py-3 compBtn" onclick="displayInp()" id="composeBtn"><i class="fa fa-pencil mr-2"></i>Compose</button>
-                <ul class="nav nav-pills flex-column pr-2">
-                    <li class="active d-flex justify-content-between mb-0"> <a href="#inbox" class="py-1 text-dark w-100" data-toggle="tab"><i class="fa-solid fa-inbox pl-4 mr-4"></i>Inbox<span class="float-right mr-2 font-weight-bold">1</span></a></li>
-                    <li class="d-flex justify-content-between"><a href="#starred" data-toggle="tab" class="text-dark w-100 py-1"><i class=" mr-4 pl-4 fa-regular fa-star"></i> Starred <span class="float-right mr-2 font-weight-bold"></span></a></li>
-                    <li class="d-flex justify-content-between"> <a href="#snoozed" data-toggle="tab" class="text-dark w-100 py-1"><i class="mr-4 pl-4 fa-regular fa-clock"></i> Snoozed <span class="float-right mr-2 font-weight-bold"></span></a></li>
-                    <li class="d-flex justify-content-between"> <a href="#draft" data-toggle="tab" class="py-1 text-dark w-100"><i class="mr-4 pl-4 fa-regular fa-file"></i> Draft <span class="float-right mr-2 font-weight-bold"></span></a></li>
-                    <li class="d-flex justify-content-between"><a href="#sent" data-toggle="tab" class="py-1 text-dark w-100"><i class=" mr-4 pl-4 fa-regular fa-paper-plane"></i>Sent<span class="float-right mr-2 font-weight-bold"></span></a></li>
+                <button class="btn rounded-lg mb-3 ml-4 mr-4 py-3 px-0 compBtn" onclick="displayInp()" id="composeBtn"><i class="fa fa-pencil mr-2"></i>Compose</button>
+                <ul class="nav nav-pills flex-column pr-2 ft-14">
+                    <li class="active d-flex justify-content-between mb-0 "> <a href="#inbox" class="ft-14 py-1 text-dark w-100" data-toggle="tab"><i class="fa-solid fa-inbox pl-4 mr-4"></i>Inbox<span class="float-right mr-2 font-weight-bold" id="inboxNumber">1</span></a></li>
+                    <li class="d-flex justify-content-between"><a href="#starred" data-toggle="tab" class="ft-14 text-dark w-100 py-1"><i class=" mr-4 pl-4 fa-regular fa-star"></i> Starred <span class="float-right mr-2 font-weight-bold"></span></a></li>
+                    <li class="d-flex justify-content-between"> <a href="#snoozed" data-toggle="tab" class="ft-14 text-dark w-100 py-1"><i class="mr-4 pl-4 fa-regular fa-clock"></i> Snoozed <span class="float-right mr-2 font-weight-bold"></span></a></li>
+                    <li class="d-flex justify-content-between"> <a href="#draft" data-toggle="tab" class="ft-14 py-1 text-dark w-100"><i class="mr-4 pl-4 fa-regular fa-file"></i> Draft <span class="float-right mr-2 font-weight-bold"></span></a></li>
+                    <li class="d-flex justify-content-between"><a href="#sent" data-toggle="tab" class="ft-14 py-1 text-dark w-100"><i class=" mr-4 pl-4 fa-regular fa-paper-plane"></i>Sent<span class="float-right mr-2 font-weight-bold"></span></a></li>
                 </ul>
-                <details class="ml-4">
+                <details class="ml-4 text-dark ft-14">
                     <summary>More</summary>
                     <ul>
-                        <li><a href="#">Important</a></li>
-                        <li><a href="#">Chats</a></li>
-                        <li><a href="#">Scheduled</a></li>
-                        <li><a href="#">All Mail</a></li>
-                        <li><a href="#">Spam</a></li>
-                        <li><a href="#">Bin</a></li>
+                        <li class="list-unstyled"><a href="#" class="text-dark">Important</a></li>
+                        <li class="list-unstyled"><a href="#" class="text-dark">Chats</a></li>
+                        <li class="list-unstyled"><a href="#" class="text-dark">Scheduled</a></li>
+                        <li class="list-unstyled"><a href="#" class="text-dark">All Mail</a></li>
+                        <li class="list-unstyled"><a href="#" class="text-dark">Spam</a></li>
+                        <li class="list-unstyled"><a href="#" class="text-dark">Bin</a></li>
                     </ul>
                 </details>
                 <!-- BOX TO SIGN OUT OR SIGN IN TO ANOTHER ACCOUNT  -->
-                <div class="d-none flex-column bg-white rounded w-50 pt-2 position-absolute sign-out-box" id="signOutBox">
-                    <button id="currUserAccount" class="btn-dark text-white font-weight-bold mx-auto btn d-flex justify-content-center align-items-center bg-danger px-3 py-1 rounded-circle text-center" ></button>
-                   <p class="font-weight-bold text-center text-muted mb-0" id="userNames"></p>
-                   <p class="font-weight-bold text-muted text-center mb-0" id="userUserName"></p>
-                   <div class="text-center border border-muted border-top-0 border-left-0 border-right-0 py-3">
-                    <button class="btn btn-light rounded-pill shadow-none border border-muted w-50 mx-auto">Manage Your Account</button>  
-                   </div>
-                   <div class="d-flex align-items-center justify-content-center border border-muted border-top-0 border-left-0 border-right-0 py-1">
-                       <button class="btn btn-white d-flex align-items-center shadow-none justify-content-center" onclick="signInPage()"> <i class="fa fa-user-plus mr-2"></i>
-                        <p class="mb-0">Add Another Account</p></button>
-                   </div>
-                   <div class="text-center py-2 border border-muted border-top-0 border-left-0 border-right-0">
-                    <button class="btn shadow-none border border-muted">Sign Out</button>
-                   </div>
-                    <div class="d-flex justify-content-center py-2 align-items-center">
-                       <a href="#" class="text-muted small-texts">Privacy Policy</a>
-                       <span>.</span>
-                       <a href="#" class="text-muted small-texts">Terms of Service</a>
+                <div class="signOutBoxOverlay d-none" onclick="showSignOutBox()">
+                    <div class="d-none flex-column bg-white rounded pt-2  sign-out-box" id="signOutBox">
+                        <button id="currUserAccount" class="btn-dark text-white font-weight-bold mx-auto btn d-flex justify-content-center align-items-center px-3 py-1 rounded-circle text-center" ></button>
+                       <p class="font-weight-bold text-center text-muted mb-0" id="userNames"></p>
+                       <p class="font-weight-bold text-muted text-center mb-0" id="userUserName"></p>
+                       <div class="text-center border border-muted border-top-0 border-left-0 border-right-0 py-3">
+                        <button class="btn btn-light rounded-pill shadow-none border border-muted w-50 mx-auto">Manage Your Account</button>  
+                       </div>
+                       <div class="d-flex align-items-center justify-content-center border border-muted border-top-0 border-left-0 border-right-0 py-1">
+                           <button class="btn btn-white d-flex align-items-center shadow-none justify-content-center" onclick="signInPage()"> <i class="fa fa-user-plus mr-2"></i>
+                            <p class="mb-0">Add Another Account</p></button>
+                       </div>
+                       <div class="text-center py-2 border border-muted border-top-0 border-left-0 border-right-0">
+                        <button class="btn shadow-none border border-muted" onclick="signInPage()">Sign Out</button>
+                       </div>
+                        <div class="d-flex justify-content-center py-2 align-items-center">
+                           <a href="#" class="text-muted small-texts">Privacy Policy</a>
+                           <span>.</span>
+                           <a href="#" class="text-muted small-texts">Terms of Service</a>
+                        </div>
                     </div>
                 </div>
+               
                 <!-- Box TO TYPE MESSAGE...ONCLICK OF COMPOSE BUTTON -->
-                <div class="d-none position-absolute bg-white flex-column p-4 w-50 h-50 composeBox">
-                    <p class="font-weight-bold w-100 text-left">New Message</p>
+                <div class="d-none position-absolute bg-white flex-column  pb-4 pt-0 composeBox" style="width: 40%; height: 65%;" id="composeBxx">
+                    <div class="d-flex align-items-center  opacity-1 mb-2 justify-content-between">
+                        <p class="font-weight-bold mb-0 w-100 text-left pl-2 text-dark">New Message</p>
+                        <div class="d-flex align-items-center">
+                            <button class="btn shadow-none fa fa-minus" onclick="document.getElementById('composeBxx').style.height='5%'"></button>
+                            <button class="btn shadow-none fa fa-up-right-and-down-left-from-center" onclick="document.getElementById('composeBxx').style.height='65%'"></button>
+                            <button class="btn shadow-none fa fa-times" onclick="closeCompose()"></button>
+                        </div>
+                    </div>
                     <input type="text" name="" placeholder="To.(Recipient)" class="shadow-none w-100 form-control border-left-0 border-top-0 border-right-0" id="mRecipient">
                     <input type="text" placeholder="Subject" class="border-left-0 border-top-0 border-right-0 shadow-none form-control w-100 form-control" name="" id="mSubject">
                     <textarea name="" id="mBody" placeholder="Your Message"  class="shadow-none border-0 form-control mb-3" cols="30" rows="30"></textarea>
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex mx-4 justify-content-between align-items-center">
                         <button class="btn text-dark btn-primary rounded-pill" id="sendMailBtn" onclick="sendMail()">SEND</button>
                         <button class="btn fa fa-trash btn-light" onclick="closeCompose()"></button>
                     </div>
@@ -136,19 +146,20 @@
                     <ul class="nav nav-tabs d-flex justify-content-start">
                         <li class="active mr-5"><a href="#primary" data-toggle="tab" class="text-dark"><i class="fa-solid fa-inbox mr-3"></i>Primary</a></li>
                         <li class="mr-5 ml-3"><a href="#promotion" data-toggle="tab" class="text-dark"><i class="fa-solid fa-tag mr-3"></i>Promotions</a></li>
-                        <li class="ml-3"><a href="#"  data-toggle="tab" class="text-dark"><i class="fa-solid fa-user-group mr-3"></i>Social</a></li>
+                        <li class="ml-3"><a href="#social"  data-toggle="tab" class="text-dark"><i class="fa-solid fa-user-group mr-3"></i>Social</a></li>
                     </ul>
                     <div class="tab-content pt-2">
                         <div class="tab-pane active" id="primary">
                         </div>
                         <div class="tab-pane" id="promotion">
-                            <div class="d-flex align-items-center">
-                                <input type="checkbox" name="" id="">
-                            <h5 class="mb-0">Pianote weekly</h5>
-                            <p class="mb-0">Your last day to claim your free ebook</p>
+                            <div class="text-dark text-center">
+                                <p>You have no promotions.Mails from companies and other ad bodies will appear here</p>
                             </div>
                         </div>
                         <div class="tab-pane" id="social">
+                            <div class="text-center text-dark"> 
+                                <p>You have no Social Mails.Mails from social medias and other sites which yiu have linked  will appear here</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -172,7 +183,7 @@
                             <i class="fa fa-greater-than small-texts"></i>
                         </div>
                     </div>
-                    <p class="text-center border border-muted border-left-0 border-right-0 border-top-0">No starred messages. Stars let you give messages a special status to make them easier to find. To star a message, click on the star outline beside any message or conversation.</p>
+                    <div class="text-center border border-muted border-left-0 border-right-0 border-top-0" id="starredMailInp">No starred messages. Stars let you give messages a special status to make them easier to find. To star a message, click on the star outline beside any message or conversation.</div>
                 </div>
                 <div class="tab-pane fade" id="snoozed">
                     <div class="d-flex align-items-center justify-content-between mb-4">
@@ -216,7 +227,7 @@
                             <i class="fa fa-greater-than small-texts"></i>
                         </div>
                     </div>
-                    <p class="text-center border border-muted border-left-0 border-right-0 border-top-0">No sent messages! <a href="#" onclick="displayInp()">Send</a> one now!</p>
+                    <div class="text-center border border-muted border-left-0 border-right-0 border-top-0" id="sentMail">No sent messages! <a href="#" onclick="displayInp()">Send</a> one now!</div>
                 </div>
                 <div class="tab-pane fade" id="draft">
                     <div class="d-flex align-items-center justify-content-between mb-4">
@@ -241,21 +252,49 @@
                     <p class="text-center border border-muted border-left-0 border-right-0 border-top-0">You don't have any saved drafts. <br>Saving a draft allows you to keep a message you aren't ready to send yet.</p>
                 </div>
             </div>
+            <!-- Destop messages -->
+            <div id="desktopMessage" class="position-absolute d-none bg-white h-100" style="left:20%; width: 78.5%;">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="d-flex">
+                        <button class="fa  fa-arrow-left text-muted  rounded-circle mx-2 shadow-none btn" onclick="closeDesktopMessage()" data-toggle="tooltip" title="go back"></button>
+                        <button class="fa fa-archive  shadow-none rounded-circle mx-2 text-muted btn" data-toggle="tooltip" title="Archive"></button>
+                        <button class="fa fa-trash btn text-muted rounded-circle mx-2  shadow-none"  data-toggle="tooltip" title="delete"></button>
+                        <button class="fa-regular fa-clock btn rounded-circle mx-2  shadow-none" data-toggle="tooltip" title="snooze"></button>
+                        <button class="fa-regular fa-envelope rounded-circle mx-2 btn  shadow-none" data-toggle="tooltip" title="mark as unread"></button>
+                        <button class="fa fa-ellipsis-vertical  shadow-none rounded-circle btn" data-toggle="tooltip" title="More"></button>
+                    </div>
+                    <div class="text-muted mr-5">
+                        1 of 2
+                    </div>
+                </div>
+                <div class="px-4 mb-4" >
+                    <p id="mailTopic"></p>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                    <div class="mr-2 bg-success rounded-circle px-2 py-2 fa fa-user"></div>
+                    <span class="font-weight-bold mr-2" id="mailSender"></span>
+                    <span class="text-muted mr-2" id="senderUsername"></span>
+                </div>
+                <div class="px-5 border border-bottom-0 border-left-0 border-right-0 pt-2" id="mailBody">
+                    
+                </div>
+            </div>
+            <!-- destop message end -->
         </div>
         <p class="d-none bg-dark text-white w-25 ml-4 p-1 rounded mt-5" id="undoBlock"></p>
     </div>
     <div class="container-fluid pt-1 px-0 d-none h-100 w-100" id="emailMobile">
-        <div id="defaultPage">
+        <div id="defaultPage" class="page">
             <div class="fixed-top bg-light d-flex justify-content-between align-items-center form-group py-2">
-                <div>
-                    <button class="fa fa-bars mx-2 btn shadow-none"></button>
-                    <i class="fa fa-arrow-right"></i>
+                <div class="d-flex align-items-center">
+                    <button class="fa fa-bars mx-2 btn shadow-none" onclick="displayPage('#sideMenu')"></button>
+                    <button class="fa fa-rotate-right btn shadow-none" onclick="window.location.reload()"></button>
                 </div>
                 <div>
-                    <p class="m-0">Primary <span>82</span></p> 
+                    <p class="m-0">Primary <span id="primNumber">82</span></p> 
                 </div>
                 <div>
-                    <button class="btn btn-danger fa fa-pencil mr-1" onclick="typeMail()"></button>
+                    <button class="btn btn-danger fa fa-pencil mr-1" onclick="displayPage('#typePage')"></button>
                 </div>
             </div>
             <div>
@@ -263,9 +302,82 @@
             </div>
             <div id="primary2" class="h-100 w-100  p-1"></div>
         </div>
-        <!-- type email page -->
-        <div id="typePage" class="d-none">
+        <!-- MOBILE STARRED MESSSAGES -->
+        <div id="starredPage" class="d-none page">
             <div class="fixed-top bg-light d-flex justify-content-between align-items-center form-group py-2">
+                <div class="d-flex align-items-center">
+                    <button class="fa fa-bars mx-2 btn shadow-none" onclick="displayPage('#sideMenu')"></button>
+                    <button class="fa fa-rotate-right btn shadow-none"></button>
+                </div>
+                <p class="mb-0 pr-5">Starred<span id="starNumber" class="ml-2"> 82</span></p> 
+                <div>
+                    <button class="btn btn-danger fa fa-pencil mr-1" onclick="displayPage('#typePage')"></button>
+                </div>
+            </div>
+            <div>
+                <input type="text" class="form-control shadow-none mt-5" name="" placeholder="Search" id="">
+            </div>
+            <div id="starredMailInp2" class="h-100 w-100  p-1"></div>
+        </div>
+        <!-- SENT MESSAGES -->
+        <div id="sentMailPage" class="d-none page">
+            <div class="fixed-top bg-light d-flex justify-content-between align-items-center form-group py-2">
+                <div class="d-flex align-items-center">
+                    <button class="fa fa-bars mx-2 btn shadow-none" onclick="displayPage('#sideMenu')"></button>
+                    <button class="fa fa-rotate-right btn shadow-none"></button>
+                </div>
+                <p class="mb-0 pr-5">Sent Mail<span id="sentNumber" class="ml-2"></span></p> 
+                <div>
+                    <button class="btn btn-danger fa fa-pencil mr-1" onclick="displayPage('#typePage')"></button>
+                </div>
+            </div>
+            <div>
+                <input type="text" class="form-control shadow-none mt-5" name="" placeholder="Search" id="">
+            </div>
+            <div id="sentMailInp" class="h-100 w-100  p-1"></div>
+        </div>
+        <!-- DISPLAYING MESSAGES -->
+        <div class="px-1 bg-light d-none page" id="messagePage">
+            <div class="fixed-top bg-light d-flex justify-content-between align-items-center form-group py-2">
+                <div>
+                    <button class="mx-2 btn btn-white border shadow-none" onclick="displayPage('#defaultPage')" id="messageBack"><i class="fa fa-arrow-left"></i> Primary</button>
+                </div>
+                <div>
+                    <button class="btn btn-light text-muted fa fa-trash mr-1" onclick="reverseShowMessage()"></button>
+                </div>
+            </div>
+            <div class="py-3 bg-light border border-bottom-0 border-left-0 border-right-0 border-secondary mt-5" id="msgTopic">Let's talk about motivation</div>
+            <div class="d-flex flex-column  bg-white">
+                <div class="d-flex justify-content-between border border-bottom">
+                    <div class="d-flex w-75 align-items-center py-3">
+                        <div class="rounded-circle  px-2 py-2 ml-1 mr-2 fa fa-user bg-primary"></div>
+                        <p class="font-weight-bold mb-0" id="senderName">Lisa Witt (Pianote) <br> <span class="text-muted">to me</span></p>
+                    </div>
+                    <button class="btn btn-white fa fa-reply text-muted"></button>
+                </div>
+                <div id="msgBdy">
+                    
+                </div>
+            </div>    
+            <div class="fixed-bottom bg-light d-flex flex-column py-2">
+                <p class="mb-0 text-muted text-center">This Email was sent to <span class="currentAcc text-primary"></span></p>
+                <div class="bg-light"> </div>
+                <div class="d-flex bg-white justify-content-around">
+                    <div class="d-flex align-items-center border pr-5 ml-3 border-left-0 border-top-0 border-bottom-0">
+                        <i class="fa fa-reply mr-2  display-4 text-muted"></i>
+                        <p class="text-muted mb-0">Reply</p>
+                    </div>
+                    <div class="d-flex align-items-center" onclick="forwardMessage()">
+                        <i class="fa fa-share mr-2 display-4 text-muted"></i>
+                        <p class="text-muted mb-0">Forward</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- type email page -->
+        <div id="typePage" class="d-none page">
+            <div class="fixed-top bg-light  marggin d-flex justify-content-between align-items-center form-group py-2">
                 <div>
                     <button class="mx-2 btn btn-white shadow-none border" onclick="closeTypeMail()">Close</button>
                 </div>
@@ -273,7 +385,7 @@
                     <button class="btn btn-primary mr-1" onclick="sendMobileMail()">Send</button>
                 </div>
             </div>
-            <p class="bg-warning mb-0 mt-5 text-center" id="noRecipient"></p>
+            <p class="bg-warning mb-0 mt-5 text-center py-3 d-none" id="noRecipient"></p>
             <input type="text" name="" class="mt-5 rounded-0 form-control shadow-none" id="mobileRecipient" placeholder="To">
             <input type="text" name="" class="form-control rounded-0 shadow-none" id="" placeholder="cc/Bcc">
             <div class="d-flex justify-content-between form-control align-items-center py-4 pl-0">
@@ -286,6 +398,60 @@
                 <p class="text-center mb-0 ">© 2022</p>
             </div>
         </div>    
+        <!-- SIDE MENU PAGE -->
+        <div class="d-none page" id="sideMenu">
+            <div class=" bg-light d-flex justify-content-end align-items-center border border-secondary border-left-0 border-right-0 border-top-0 py-2">
+                <div>
+                    <button class="btn btn-white rounded currentAcc border mr-5" onclick="signInPage()"></button>
+                    <i class="fa fa-gear mx-3"></i>
+                </div>
+            </div>
+            <div class="d-flex flex-column">
+                <p class="bg-light border border-secondary border-left-0 border-right-0 border-top-0 mb-0 text-muted pl-2">Inbox</p>
+                <div class="d-flex border align-items-center justify-content-between" onclick="displayPage('#defaultPage')">
+                    <button class="btn-white shadow-none btn font-weight-bold"><i class="fa-solid text-muted fa-inbox"></i> Primary</button>
+                    <button class="btn shadow-none btn-success py-0 px-3 mr-4" id="primNumber">1</button>
+                </div>
+                <div class="d-flex border align-items-center justify-content-between">
+                    <button class="btn-white shadow-none btn font-weight-bold"><i class="fa-solid fa-user-group text-muted"></i> Social</button>
+                </div>
+                <div class="d-flex border align-items-center justify-content-between">
+                    <button class="btn-white shadow-none btn font-weight-bold"><i class="fa-solid text-muted fa-tag"></i> Promotions</button>
+                </div>
+            </div>
+            <div class="d-flex flex-column">
+                <p class="bg-light border border border-left-0 border-right-0 border-top-0 mb-0 text-muted pl-2">Labels</p>
+                <div class="d-flex border align-items-center justify-content-between" onclick="displayPage('#starredPage')">
+                    <button class="btn-white shadow-none btn font-weight-bold">Starred</button>
+                </div>
+                <div class="d-flex border align-items-center justify-content-between" onclick="displayPage('#sentMailPage')">
+                    <button class="btn-white btn shadow-none ">Sent Mail</button>
+                </div>
+                <div class="d-flex border align-items-center justify-content-between">
+                    <button class="btn-white btn shadow-none ">Drafts</button>
+                </div>
+            </div>
+            <div class="d-flex flex-column">
+                <p class="bg-light border border border-left-0 border-right-0 border-top-0 mb-0 text-muted pl-2">More</p>
+                <div class="d-flex border align-items-center justify-content-between">
+                    <button class="btn-white btn ">Important</button>
+                </div>
+                <div class="d-flex border align-items-center justify-content-between">
+                    <button class="btn-white btn ">All Mail</button>
+                </div>
+                <div class="d-flex border align-items-center justify-content-between">
+                    <button class="btn-white btn ">Bin</button>
+                </div>
+                <div class="d-flex border align-items-center justify-content-between">
+                    <button class="btn-white btn ">Spam</button>
+                </div>
+            </div>
+            <div class="currentAcc bg-light text-center text-muted py-4"></div>
+            <div class="fixed-bottom bg-light d-block py-2">
+                <p class="text-center mb-0">Viewing Gmail in <span class="font-weight-bold">Mobile</span></p>
+                <p class="text-center mb-0 ">© 2022</p>
+            </div>
+        </div>
         
            
     </div>
