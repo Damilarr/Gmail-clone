@@ -2,6 +2,7 @@ let colorArray=['#6c757d','#17a2b8','#28a745',"#007bff",'#007bff','#6610f2','#6f
 let currentUser = localStorage.getItem("currentUser");
 let userArray = JSON.parse(window.localStorage.getItem("userArr"));
 let cuurentUserIndex;
+let date = new Date
 console.log(userArray, "userArray");
 
 let user = userArray.find((element,i) => {
@@ -32,7 +33,7 @@ function progressBar() {
     progress += 10;
     setTimeout(() => {
       progressBar();
-    }, 100);
+    }, 1000);
   } else {
     if (window.innerWidth > 662) {
       loading.classList.replace("d-flex", "d-none");
@@ -63,7 +64,7 @@ function sentMail(id) {
         ${
           window.innerWidth > 662
             ? `<p class="mb-0 text-secondary">To:${element.sentTo}</p>`
-            : `<div class="w-100 d-flex justify-content-between"><p class="mb-0 text-seconday">${element.sentTo}</p> <span class="date">Oct 8</span> </div>`
+            : `<div class="w-100 d-flex justify-content-between"><p class="mb-0 text-seconday">${element.sentTo}</p> <span class="date">Oct ${date.getDate()} </span> </div>`
         }
     </div>
     <div class=" d-flex  justify-content-around w-75 align-items-center  ${
@@ -75,7 +76,7 @@ function sentMail(id) {
       0,
       25
     )}...</p>
-        ${window.innerWidth > 662 ? '<span class="date">Oct 8</span>' : ""}
+        ${window.innerWidth > 662 ? `<span class="date">Oct ${date.getDate()} </span>` : ""}
         <div class="justify-content-around icons" id="icons">
             <button data-toggle="tooltip"  data-placement="bottom" title="Archive" class="mr-2 btn rounded-circle fa fa-archive  text-muted"></button>
             <button  class="fa fa-trash mr-2 text-muted btn rounded-circle" onclick="delMail(${i})"></button>
@@ -128,7 +129,7 @@ function show(id,array) {
         ${
           window.innerWidth > 662
             ? `<p class="mb-0 font-weight-bold">${element.sender}</p>`
-            : `<div class="w-100 d-flex justify-content-between"><p class="mb-0 font-weight-bold">${element.sender}</p> <span class="date">Oct 8</span> </div>`
+            : `<div class="w-100 d-flex justify-content-between"><p class="mb-0 font-weight-bold">${element.sender}</p> <span class="date">Oct ${date.getDate()} </span> </div>`
         }
     </div>
     <div class=" d-flex  justify-content-around w-75 align-items-center  ${
@@ -140,7 +141,7 @@ function show(id,array) {
       0,
       22
     )}...</p>
-        ${window.innerWidth > 662 ? '<span class="date">Oct 8</span>' : ""}
+        ${window.innerWidth > 662 ? `<span class="date">Oct ${date.getDate()} </span>` : ""}
         <div class="justify-content-around m-0 w-25 icons" id="icons">
             <button data-toggle="tooltip"  data-placement="bottom" title="Archive" class="mr-1 btn rounded-circle fa fa-archive  text-muted"></button>
             <button  class="fa fa-trash mr-1 text-muted btn rounded-circle" onclick="delMail(${i})"></button>
