@@ -33,7 +33,7 @@ function progressBar() {
     progress += 10;
     setTimeout(() => {
       progressBar();
-    }, 1000);
+    }, 100);
   } else {
     if (window.innerWidth > 662) {
       loading.classList.replace("d-flex", "d-none");
@@ -83,7 +83,7 @@ function sentMail(id) {
             <button data-toggle="tooltip"  data-placement="bottom" title="Snooze" class="fa fa-clock mr-2 text-muted btn  rounded-circle"></button>
             <button data-toggle="tooltip"  data-placement="bottom" title="Mark as Unread" class="btn rounded-circle fa fa-clock mr-2 text-muted"></button>
         </div>
-        ${window.innerWidth > 662 ? "" : '<i class="fa fa-bars mt-5"></i>'}
+        ${window.innerWidth > 662 ? "" : '<i class="fa fa-star mt-5"></i>'}
     </div>
     </div>`;
   });
@@ -194,24 +194,24 @@ function delMail(i) {
   mailIndex = i;
   deletedMail.push(user.mailArray[mailIndex]);
   user.mailArray.splice(mailIndex, 1);
-  showUndo(
-    `Mail Deleted  <button class="btn btn-dark text-info" onclick="undoDelete()">Undo</button><span></span>`
-  );
-  show('starredMailInp','user.starredMailArray')
-  show('starredMailInp2','user.starredMailArray')
   show('primary','mailArray');
   show('primary2','mailArray')
+  showUndo(`Mail Deleted  <button class="btn btn-dark text-info" onclick="undoDelete()">Undo</button><span></span>`,'undoBlock');
+  showUndo(`Mail Deleted  <button class="btn btn-dark text-info" onclick="undoDelete()">Undo</button><span></span>`,'undoBlock2');
+//   show('starredMailInp','user.starredMailArray')
+//   show('starredMailInp2','user.starredMailArray')
 }
-function showUndo(param) {
+function showUndo(param,ID) {
+    console.log('deleteingggg');
   if (undoTimer > 0) {
-    undoBlock.innerHTML = param;
-    document.getElementById("undoBlock").classList.remove("d-none");
+    document.getElementById(ID).innerHTML = param;
+    document.getElementById(ID).classList.remove("d-none");
     setTimeout(() => {
       undoTimer--;
-      showUndo(param);
+      showUndo(param,ID);
     }, 1000);
   } else {
-    document.getElementById("undoBlock").classList.add("d-none");
+    document.getElementById(ID).classList.add("d-none");
     undoTimer = 3;
     deleting = false
     localStorage.setItem("userArr", JSON.stringify(userArray));
@@ -221,6 +221,7 @@ function undoDelete() {
   user.mailArray.push(deletedMail[deletedMail.length - 1]);
   deletedMail.pop();
   show('primary','mailArray');
+  show('primary2','mailArray');
 }
 let colorIndex = Math.trunc(Math.random()*colorArray.length)
 document.getElementById(
@@ -283,6 +284,7 @@ function sendMail() {
     addTosentMail(mRecipient, mSubject, mBody);
     console.log(sentMailArray);
     sentMail("sentMail");
+    // sentMail("sentMailInp");
     displayInp();
     if (undoTimer >= 2) {
       showUndo(`Sending....`);
@@ -391,6 +393,7 @@ function sendMobileMail() {
   } else if (mobileRecipient.value && mobileBody.value && mobileSubject.value) {
     sendd(mobileRecipient, mobileSubject, mobileBody);
     addTosentMail(mobileRecipient, mobileSubject, mobileBody);
+    sentMail('sentMailInp')
     alert("sent");
     closeTypeMail();
   }
@@ -412,7 +415,7 @@ function showMessage(i){
         document.getElementById('mailBody').innerHTML = `<p class="px-5">${ user.mailArray[i].emailBody}</p>`
         document.getElementById('desktopMessage').classList.remove('d-none')
 
-    }else{
+    }else if(window.innerWidth < 662 && deleting !== true){
         msgIndex = i
         document.getElementById('senderName').innerHTML=  user.mailArray[i].sender
         document.getElementById('msgBdy').innerHTML  = `<p class="pt-3">${ user.mailArray[i].emailBody}</p>`;
