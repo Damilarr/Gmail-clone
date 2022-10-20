@@ -118,12 +118,12 @@ function nextPage() {
         userName: userName.value + "@gmail.com",
         password: password.value,
         starredMailArray:[],
-        senderUsername:'mail@google.com',
         sentMailArray: [],
         mailArray: [
           {
             sender: "Google",
             subject: "Finish Account Set up",
+            senderUsername:'mail@google.com',
             emailBody:
               ",A better experience is waiting. Take one minute to set up your device with Google",
             starred: false,
