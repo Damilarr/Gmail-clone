@@ -25,18 +25,18 @@
                     <div class="d-flex justify-content-around align-items-center form-group name flex-wrap flex-sm-nowrap">
                         <div class="input-wrapper position-relative w-100 shadow-none  mr-sm-2 mr-0 mb-sm-0 mb-2">
                             <label for="firstName" class="bg-white d-none" id="firstNameLabel">FirstName</label>
-                            <input type="text" name=""  oninput="showLabel('firstNameLabel','firstName')" onblur="validateName('firstName')" title="FirstName containing letters only" class="form-control shadow-none" placeholder="Firstname" id="firstName">
+                            <input type="text" name=""  required  oninput="showLabel('firstNameLabel','firstName'),validateName('firstName')"  title="FirstName containing letters only" class="form-control shadow-none" placeholder="Firstname" id="firstName">
                         </div>
                         <div class="input-wrapper position-relative w-100 shadow-none">
                             <label for="lastname" class="bg-white d-none" id="lastNameLabel">Lastname</label>
-                            <input type="text" name="" oninput="showLabel('lastNameLabel','lastName')" onblur="validateName('lastName')" title="lastName containing letters only" class="form-control shadow-none"  placeholder="Lastname" id="lastName">
+                            <input type="text" name="" required oninput="showLabel('lastNameLabel','lastName'),validateName('lastName')" title="lastName containing letters only" class="form-control shadow-none"  placeholder="Lastname" id="lastName">
                         </div>
                     </div>
                     <div class="d-flex flex-column w-100 form-group username-div mb-0">
                         <div class="input-group flex-nowrap align-items-center w-100 m-0">
                             <div class="input-wrapper position-relative  w-75">
                                 <label for="lastname" class="bg-white d-none" id="userNameLabel">Username</label>
-                                <input type="text" oninput="showLabel('userNameLabel','userName')" onblur="validateName('userName')" title="Username can only contain letters and special charcters # * $ _ ." class="form-control border-right-0  shadow-none" id="userName" placeholder="Username">
+                                <input type="text" required oninput="showLabel('userNameLabel','userName'),validateName('userName')"  title="Username can only contain letters and special charcters # * $ _ ." class="form-control border-right-0  shadow-none" id="userName" placeholder="Username">
                             </div>
                             <div class="input-group-append">
                               <span class="input-group-text bg-white w-100" id="basic-addon2">@gmail.com</span>
@@ -109,7 +109,7 @@
                 <img src="./img/vector2.svg" class="" alt="">
             </div>
             <h4 class="text-center w-100">Welcome</h4>
-            <p class="text-center rounded-pill border"><i class="fa-solid fa-circle-user text-primary pr-2"></i><span id="userEmail">imaxx66@gmail.com</span></p>
+            <p class="text-center rounded-pill border"><i class="fa-solid fa-circle-user text-primary pr-2"></i><span id="userEmail"></span></p>
             <div class="d-flex flex-column mb-4 w-100 inp-label">
                 <div class="input-wrapper position-relative w-100">
                     <label for="accountPassword" class="d-none bg-white" id="signInPassL">Enter your Password</label>
@@ -122,7 +122,7 @@
             </div>
             <div class="d-flex justify-content-between align-items-center w-100">
                 <a href="#" class="rounded p-1 link-style" id="toSignUp" onclick="">Forgot password?</a>
-                <form><button class="btn btn-primary px-4" id="fBtn" formaction="#" onclick="openMail()">Next</button></form>
+                <button class="btn btn-primary px-4" id="fBtn" onclick="openMail()">Next</button>
             </div>
         </div>
     </div>
@@ -199,7 +199,7 @@
         </div>
     </div>
     <!-- PRIVACY AND TERMS -->
-    <div class="border rounded p-3 p-md-5 mx-md-5 page">
+    <div class="border rounded p-3 p-md-5 mx-md-5 page" id="privTerms">
         <img src="./img/vector2.svg" alt="">
         <h5 class="w-50">Privacy and Terms</h5>
         <div class="d-flex justify-content-between align-items-start  w-100">
@@ -276,7 +276,7 @@
                 </details>
                 <div class="d-flex align-items-center justify-content-between w-100">
                     <a href="#" class="rounded p-1 link-style" onclick="prevPage()">Cancel</a>
-                    <button class="btn btn-primary px-4" id="page2" onclick="nextPage()">I agree</button>
+                    <button class="btn btn-primary px-4" id="page2" onclick="openMail()">I agree</button>
                 </div>
             </div>
             <div class="w-75 d-flex flex-column  align-items-center justify-content-center privacy-img">

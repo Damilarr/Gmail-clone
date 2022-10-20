@@ -63,4 +63,5 @@ input[type=checkbox]{
 }
 @media screen and (max-width:576px) {
     .main,.sign-in-page,.dob{ border-color: transparent !important;}
+    .progress{width: 100% !important;}
 }
