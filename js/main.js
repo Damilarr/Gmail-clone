@@ -4,22 +4,29 @@ let userArray = [
     lastName: "Ade",
     userName: "imaxx66@gmail.com",
     password: "1234abc#",
+    starredMailArray:[],
+    senderUsername:'mail@google.com',
+    sentMailArray: [],
     mailArray: [
       {
         subject: "Security Alert",
         emailBody:
           "We noticed a new sign-in to your Google Account.If this was not you,you don't need to do Anything.If not We'll help you secure your Account",
+        starred: false,
       },
       {
         subject: "Finish Account Set up",
         emailBody:
-          ",A better experience is waiting. Take one minute to set up your device with Google",
+          ",A better experience is waiting. Take one minute to set up your device with Google Your new account comes with access to google products apps and services",
+          starred: false,
       },
     ],
   },
 ];
+let savedArr;
+// savedArr = localStorage.setItem("userArr", JSON.stringify(userArray));
 let [{ mailArray: mailArray }] = userArray;
-let mails = localStorage.setItem('mailArr',JSON.stringify(mailArray))
+let mails = localStorage.setItem("mailArr", JSON.stringify(mailArray));
 console.log(mailArray);
 let currentPage = 0;
 let validity = false;
@@ -41,7 +48,6 @@ const gender = document.getElementById("gender");
 const birthDay = document.getElementById("b-day");
 const birthMonth = document.getElementById("b-month");
 const birthYear = document.getElementById("b-year");
-let savedArr;
 
 let getUsers = localStorage.getItem("userArr");
 function checkUsers() {
@@ -83,8 +89,10 @@ function nextPage() {
         inputsFilled = false;
       }
     });
+    let index
     if (inputsFilled && signUpPage.classList.contains("d-none")) {
-      let emailCheck = userArray.find((element) => {
+      let emailCheck = userArray.find((element, i ) => {
+           index = i
         return element.userName == accountEmail.value;
       });
       if (emailCheck) {
@@ -109,28 +117,22 @@ function nextPage() {
         lastName: lastName.value,
         userName: userName.value + "@gmail.com",
         password: password.value,
-        mailArray:[{
-            sender:'Google',
+        starredMailArray:[],
+        senderUsername:'mail@google.com',
+        sentMailArray: [],
+        mailArray: [
+          {
+            sender: "Google",
             subject: "Finish Account Set up",
             emailBody:
               ",A better experience is waiting. Take one minute to set up your device with Google",
-          },]
+            starred: false,
+          },
+        ],
       };
       userArray.push(details);
       savedArr = localStorage.setItem("userArr", JSON.stringify(userArray));
       showPage(currentPage);
-      // } else if (inputsFilled && signUpPage.classList.contains("d-none")) {
-      //   let emailCheck = userArray.find((element) => {
-      //       debugger
-      //     return element.userName == accountEmail.value;
-      //   });
-      //   if (emailCheck) {
-      //     signInPage.classList.add("d-none");
-      //     document.getElementById("signInPassword").classList.remove("d-none");
-      //   } else {
-      //     accountEmail.style.borderColor = "red";
-      //     accountEmailP.innerHTML = "Google account not found";
-      //   }
     } else if (validity !== true) {
       alert("Fill all fields in the correct order");
     } else {
@@ -142,12 +144,21 @@ function nextPage() {
       birthDay.value &&
       birthMonth.value &&
       birthYear.value &&
-      Number(birthDay.value) < 32
+      Number(birthDay.value) < 32 &&
+      Number(birthYear.value < 2022)
     ) {
       pages[currentPage].style.display = "none";
       currentPage++;
       showPage(currentPage);
-    } else {
+    } else if( Number(birthYear.value) > 2022 || Number(birthDay.value) > 32){
+        if(Number(birthYear.value) > 2022){
+            birthYear.style.borderColor= 'red'
+            birthDay.style.borderColor= 'black'
+        }else if(Number(birthDay.value) > 32){
+            birthDay.style.borderColor= 'red'
+            birthYear.style.borderColor= 'black'
+        }   
+    }else {
       alert("Fill all required fields");
     }
   } else if (
@@ -202,7 +213,7 @@ function validateName(inpId) {
         }</span>`;
       } else {
         userNameVal = true;
-        userNameP.innerHTML=''
+        userNameP.innerHTML = "";
       }
     } else {
       console.log("False");
@@ -283,12 +294,14 @@ function openMail() {
     );
   });
   if (userCheck) {
-    localStorage.removeItem('currentUser')
-    localStorage.setItem('currentUser',accountEmail.value)
+    localStorage.removeItem("currentUser");
+    localStorage.setItem("currentUser", accountEmail.value);
+    savedArr = localStorage.setItem("userArr", JSON.stringify(userArray));
     window.location.href = "./mailPage.html";
   } else if (validity == true) {
-    localStorage.removeItem('currentUser')
-    localStorage.setItem('currentUser',`${userName.value}@gmail.com`)
+    localStorage.removeItem("currentUser");
+    localStorage.setItem("currentUser", `${userName.value}@gmail.com`);
+    savedArr = localStorage.setItem("userArr", JSON.stringify(userArray));
     window.location.href = "./mailPage.html";
   } else {
     console.log(document.getElementById("accountPassword").value);
