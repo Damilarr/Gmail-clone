@@ -9,9 +9,10 @@ let user = userArray.find((element,i) => {
     cuurentUserIndex=i
   return element.userName == `${currentUser}`;
 });
+// let getS
 let mailArray = user.mailArray;
 let sentMailArray;
-let getSentMails,deleting,starPress,msgIndex;
+let getSentMails,deleting,starPress,msgIndex,wasStarred;
 let progress = 0;
 let mailIndex = "";
 let deletedMail = [];
@@ -38,11 +39,11 @@ function progressBar() {
     if (window.innerWidth > 662) {
       loading.classList.replace("d-flex", "d-none");
       emails.classList.remove("d-none");
-      show("primary",'mailArray');
+      show("primary",'user.mailArray');
     } else {
       loading.classList.replace("d-flex", "d-none");
       emailMobile.classList.remove("d-none");
-      show("primary2",'mailArray');
+      show("primary2",'user.mailArray');
     }
   }
 }
@@ -92,6 +93,7 @@ function sentMail(id) {
     JSON.stringify(user.sentMailArray)
   );
 }
+
 getSentMails = localStorage.getItem(`${user.userName}SentMailArr`);
 function checkk() {
   if (getSentMails) {
@@ -101,9 +103,15 @@ function checkk() {
   } else {
     user.sentMailArray = [];
   }
+  if (getSentMails) {
+    user.sentMailArray = JSON.parse(getSentMails);
+    sentMail("sentMail");
+    sentMail("sentMailInp");
+  }
 }
 checkk();
 function show(id,array) {
+    let arrayy = eval(array)
   document.getElementById(id).innerHTML = "";
   eval(array).forEach(function (element, i) {
     document.getElementById(id).innerHTML += `<a class="${
@@ -119,8 +127,8 @@ function show(id,array) {
         }
         ${
           window.innerWidth > 662
-            ? `${
-                user.mailArray[i].starred == false
+            ? `${arrayy[i].starred == false
+                // array[i].starred == false
                   ? `<i class="fa-regular  fa-star  mr-2" name="" onclick='starMessage(${i})'></i>`
                   : `<i class="fa fa-star text-warning mr-2" name="" onclick='starMessage(${i})'></i>`
               }`
@@ -148,7 +156,7 @@ function show(id,array) {
             <button data-toggle="tooltip"  data-placement="bottom" title="Snooze" class="fa fa-clock mr-1 text-muted btn  rounded-circle"></button>
             <button data-toggle="tooltip"  data-placement="bottom" title="Mark as Unread" class="btn rounded-circle fa fa-clock  text-muted"></button>
         </div>
-        ${window.innerWidth > 662 ? "" : `${user.mailArray[i].starred == false 
+        ${window.innerWidth > 662 ? "" : `${arrayy[i].starred == false 
             ? `<i class="fa-regular  fa-star  mr-2" name="" onclick='starMessage(${i})'></i>`
             : `<i class="fa fa-star text-warning mr-2" name="" onclick='starMessage(${i})'></i>`
           }`}
@@ -164,18 +172,18 @@ if (userArray[cuurentUserIndex].starredMailArray.length >=1) {
 function starMessage(i) {
     if (user.mailArray[i].starred == false) {
         userArray[cuurentUserIndex].mailArray[i].starred= true
-        show('primary','mailArray');
-        show('primary2','mailArray');
         userArray[cuurentUserIndex].starredMailArray.push(userArray[cuurentUserIndex].mailArray[i])
         localStorage.setItem("userArr", JSON.stringify(userArray));
+        show('primary','user.mailArray');
+        show('primary2','user.mailArray');
         show('starredMailInp','user.starredMailArray');
         show('starredMailInp2','user.starredMailArray');
       } else if (user.mailArray[i].starred == true) {
         userArray[cuurentUserIndex].mailArray[i].starred= false
-        show('primary','mailArray');
-        show('primary2','mailArray');
         userArray[cuurentUserIndex].starredMailArray.splice(userArray[cuurentUserIndex].mailArray[i],1)
         localStorage.setItem("userArr", JSON.stringify(userArray));
+        show('primary','user.mailArray');
+        show('primary2','user.mailArray');
         show('starredMailInp','user.starredMailArray');
         show('starredMailInp2','user.starredMailArray');
       }
@@ -192,17 +200,22 @@ function closeCompose() {
 function delMail(i) {
     deleting=true
   mailIndex = i;
+  if (user.mailArray[mailIndex].starred == true){
+    starMessage(mailIndex)
+    wasStarred = true
+  }else{
+      wasStarred = false
+  }
   deletedMail.push(user.mailArray[mailIndex]);
   user.mailArray.splice(mailIndex, 1);
-  show('primary','mailArray');
-  show('primary2','mailArray')
+  show('primary','user.mailArray');
+  show('primary2','user.mailArray')
   showUndo(`Mail Deleted  <button class="btn btn-dark text-info" onclick="undoDelete()">Undo</button><span></span>`,'undoBlock');
   showUndo(`Mail Deleted  <button class="btn btn-dark text-info" onclick="undoDelete()">Undo</button><span></span>`,'undoBlock2');
-//   show('starredMailInp','user.starredMailArray')
-//   show('starredMailInp2','user.starredMailArray')
+  show('starredMailInp','user.starredMailArray')
+  show('starredMailInp2','user.starredMailArray')
 }
 function showUndo(param,ID) {
-    console.log('deleteingggg');
   if (undoTimer > 0) {
     document.getElementById(ID).innerHTML = param;
     document.getElementById(ID).classList.remove("d-none");
@@ -218,10 +231,24 @@ function showUndo(param,ID) {
   }
 };
 function undoDelete() {
-  user.mailArray.push(deletedMail[deletedMail.length - 1]);
+  if(wasStarred == true){
+      console.log('wasstarred');
+    deletedMail[deletedMail.length - 1].starred = true
+    user.mailArray.push(deletedMail[deletedMail.length - 1]);
+    user.starredMailArray.push(deletedMail[deletedMail.length - 1]);
+    show('primary','user.mailArray');
+    show('primary2','user.mailArray');
+    show('starredMailInp','user.starredMailArray')
+    show('starredMailInp2','user.starredMailArray')
+  }else{
+    console.log('wasnotttstarred');
+    user.mailArray.push(deletedMail[deletedMail.length - 1]);
+    show('primary','user.mailArray');
+    show('primary2','user.mailArray');
+
+  }
   deletedMail.pop();
-  show('primary','mailArray');
-  show('primary2','mailArray');
+  
 }
 let colorIndex = Math.trunc(Math.random()*colorArray.length)
 document.getElementById(
