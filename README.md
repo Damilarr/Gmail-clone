@@ -33,7 +33,8 @@ Users should be able to:
 ### Screenshot
 
 ![View on Mobile](./img/mobile.png)
-![View on PC](./img/pc.png.png)
+![View on PC](./img/pc.png)
+
 
 ### Links
 
