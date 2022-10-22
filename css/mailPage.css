@@ -83,6 +83,9 @@
     -ms-transition: 1s;
     -o-transition: 1s;
 }
+#undoBlock,#undoBlock2{
+    bottom: 6%;
+}
 .opacity-1{
     background-color: #d3e3fd;
 }
