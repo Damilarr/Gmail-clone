@@ -34,7 +34,7 @@ function progressBar() {
     progress += 10;
     setTimeout(() => {
       progressBar();
-    }, 100);
+    }, 850);
   } else {
     if (window.innerWidth > 662) {
       loading.classList.replace("d-flex", "d-none");

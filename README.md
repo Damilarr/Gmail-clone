@@ -25,7 +25,7 @@ Users should be able to:
 - View the optimal layout for the app depending on their device's screen size
 - Create Accounts and Sign in when they have accounts
 - Get redirected to their mail Dashboard after a successful sign up or Sign in
-- Send emailsto other registered accounts 
+- Send email(s) to other registered accounts 
 - Open and Read Emails sent and Received
 - Star and Unstar Messages as users wish
 - Undo a delete Action after deleting
@@ -49,16 +49,17 @@ Users should be able to:
 - Flexbox
 - BOOTSTRAP V4
 - Mobile-first workflow
-- Javascript!!
+- Javascript!!!
 
 ### What I learned
 
 While doing this Project I've been able to LEARN new BOOTSTRAP properties and while working with Javascript I've been able to learn to satifaction,Working with Array and Objects.
-I used the Arrays to store details and other Info i got from user and I've been able to display information on the pagew withb respect to the current User.
+I used the Arrays to store details and other Info i got from the user and I've been able to display information on the pagew with respect to the current User.
 
 ### Continued development
 
 I Plan to implement more functionalties like Snoozing a mail for a period of time and Other functions which are implemented in the Gmail App.
+Also plan to implement sending mails to multiple users
 
 ## Author
 
